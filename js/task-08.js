@@ -17,6 +17,8 @@ function handleSubmit(event) {
     email.value === "" ||
     password.value === ""
   ) {
+    // reset form after alert
+    event.currentTarget.reset();
     return alert(
       "Все поля должны быть заполнены."
     );

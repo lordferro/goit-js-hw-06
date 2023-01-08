@@ -8,12 +8,17 @@ const requiredLength = document.querySelector(
 inputEl.addEventListener("blur", onInputBlur);
 
 function onInputBlur(event) {
+
   if (
-    event.currentTarget.value.length ==
-    requiredLength.dataset.length
+    event.currentTarget.value.length ===
+    Number(requiredLength.dataset.length)
   ) {
     inputEl.classList.add("valid");
+    inputEl.classList.remove("invalid");
   } else {
     inputEl.classList.add("invalid");
+    inputEl.classList.remove("valid");
   }
 }
+
+

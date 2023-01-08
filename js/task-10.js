@@ -29,10 +29,19 @@ refs.destroyBtn.addEventListener(
 function onCreateClick() {
   let markup = "";
   let boxSize = 30;
-
+  const choosenNumber = refs.inputNumbers.value;
+ 
+  if (
+    Number(choosenNumber) > 100 ||
+    Number(choosenNumber) < 1
+  ) {
+    refs.inputNumbers.value = null;
+    return alert("Please choose number between 1 and 100");
+  }
+ 
   for (
     let i = 1;
-    i <= refs.inputNumbers.value;
+    i <= choosenNumber;
     i += 1
   ) {
     const backgroundColor = getRandomHexColor();
@@ -40,14 +49,17 @@ function onCreateClick() {
     markup += `<div style="width: ${boxSize}px; height: ${boxSize}px; background-color: ${backgroundColor};"></div>`;
 
     boxSize += 10;
-  }
-
+  }   
+  
+  refs.inputNumbers.value = null;
   return refs.boxesEl.insertAdjacentHTML(
-    "afterbegin",
+    "beforeend",
     markup
   );
 }
 
 function onDestroyClick() {
-  return (refs.boxesEl.innerHTML = "");
+  
+  refs.inputNumbers.value = null;
+  refs.boxesEl.innerHTML = "";
 }

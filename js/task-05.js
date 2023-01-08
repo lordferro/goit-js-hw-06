@@ -18,6 +18,6 @@ function onNameInputChange(event) {
       "Anonymous";
   } else {
     refs.nameOutputSpanEl.textContent =
-      event.currentTarget.value;
+      event.currentTarget.value.trim();
   }
 }
