@@ -23,8 +23,6 @@ const markup = images
   )
   .join("");
 
-console.log(markup);
-
 galleryRef.insertAdjacentHTML(
   "afterbegin",
   markup
